@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./src/",
+		"module": "es6",
+		"target": "ES2019",
+		"outDir": "dist",
+		"moduleResolution": "node",
+		"typeRoots": ["./node_modules/@types"],
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"isolatedModules": true
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}

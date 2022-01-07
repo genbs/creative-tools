@@ -1,0 +1,27 @@
+{
+  "name": "creative-tools",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "source": "src/index.ts",
+  "default": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.1.1",
+    "@parcel/transformer-typescript-types": "^2.1.1",
+    "@types/offscreencanvas": "^2019.6.4",
+    "parcel": "^2.1.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "simplex-noise": "^3.0.1"
+  },
+  "targets": {
+    "default": {}
+  }
+}
