@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./src/",
+		"baseUrl": ".",
 		"module": "es6",
 		"target": "ES2019",
 		"outDir": "dist",
