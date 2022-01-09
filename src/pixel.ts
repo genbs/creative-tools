@@ -2,17 +2,23 @@ import { clamp } from './number'
 
 export type pixel = [number, number, number, number]
 
+export type ImageDataSource = HTMLCanvasElement | ImageData
+
 export function eachPixel(
-	canvas: HTMLCanvasElement,
+	canvasOrImageData: ImageDataSource,
 	callback: (pixel: pixel, x: number, y: number, count: number) => void | pixel
 ): ImageData {
-	const context = canvas.getContext('2d')
-	const imageData = context!.getImageData(0, 0, canvas.width, canvas.height)
+	const imageData =
+		canvasOrImageData instanceof ImageData
+			? canvasOrImageData
+			: canvasOrImageData.getContext('2d')!.getImageData(0, 0, canvasOrImageData.width, canvasOrImageData.height)
+
 	const data = imageData.data
+
 	const result = new Uint8ClampedArray(data.length)
 	const length = data.length
-	const width = canvas.width
-	const height = canvas.height
+	const width = canvasOrImageData.width
+	const height = canvasOrImageData.height
 
 	for (let y = 0; y < height; y++) {
 		for (let x = 0; x < width; x++) {
@@ -26,13 +32,12 @@ export function eachPixel(
 	return new ImageData(result, width, height)
 }
 
-export type ImageDataSource = HTMLCanvasElement | ImageData
-
-export function pixelAt(canvasOrImageData: ImageDataSource, x: number, y: number, at: [number, number]): pixel {
+export function pixelAt(canvasOrImageData: ImageDataSource, x: number, y: number, at = [0, 0]): pixel {
 	const imageData =
 		canvasOrImageData instanceof ImageData
 			? canvasOrImageData
 			: canvasOrImageData.getContext('2d')!.getImageData(0, 0, canvasOrImageData.width, canvasOrImageData.height)
+
 	const data = imageData.data
 
 	x = clamp(0, imageData.width - 1, x + at[0])

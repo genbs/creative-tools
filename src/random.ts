@@ -10,7 +10,7 @@ const randoms: {
  * Random number generator
  * @example
  * ```javascript
- * 	Urpflanze.random('seed') // 0.9367527104914188
+ * 	random('seed') // 0.9367527104914188
  * ```
  *
  * @category Utilities

@@ -9,6 +9,7 @@ const measurement = typeof performance !== 'undefined' ? performance : Date
 export function now(): number {
 	return measurement.now()
 }
+
 export * from './random'
 export * from './buffer'
 export * from './number'
@@ -18,3 +19,5 @@ export * from './pixel'
 export * from './image'
 export * from './fit'
 export * from './color'
+export * from './vec2'
+export * from './array'

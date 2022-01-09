@@ -1,4 +1,4 @@
-import { pixel } from 'pixel'
+import { pixel } from './pixel'
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
 	? Acc[number]
@@ -10,6 +10,7 @@ type Range<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate
  * number between 0 and 255
  */
 export type rgb = [number, number, number]
+export type rgba = [number, number, number, number]
 
 /**
  * number between 0 and 360, 0 and 100, 0 and 100
@@ -98,8 +99,8 @@ export function rgbToHex([r, g, b]: rgb): string {
  * @param {rgb} [r, g, b]
  * @return {*}  {number from 0 to 255}
  */
-export function brightness([r, g, b]: rgb): number {
-	return (r * 299 + g * 587 + b * 114) / 1000
+export function brightness([r, g, b, a]: rgb | rgba): number {
+	return a && a > 0 ? (r * 299 + g * 587 + b * 114) / 1000 : 0
 }
 
 /**

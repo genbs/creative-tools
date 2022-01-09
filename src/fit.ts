@@ -25,9 +25,6 @@ export function fit(
 		finalHeight = ratio < sourceRatio ? destHeight : (sourceHeight * destWidth) / sourceWidth
 		// scale = Math.min(sourceWidth, sourceHeight) / Math.min(finalWidth, finalHeight)
 		scale = Math.max(finalWidth, finalHeight) / Math.max(sourceWidth, sourceHeight)
-	} else {
-		// finalWidth = sourceWidth
-		// finalHeight = sourceHeight
 	}
 
 	x = (destWidth - finalWidth) / 2
