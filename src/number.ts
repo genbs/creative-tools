@@ -105,10 +105,19 @@ export function relativeClamp(refMin: number, refMax: number, value: number, toM
 }
 
 /**
- * Ritorna un numero intero tra {min} e {max} (inclusi)
  *
- * @param {number} min
- * @param {number} max
- * @returns {number}
+ *
+ * @export
+ * @param {number} a
+ * @param {number} b
+ * @param {number} [epsilon=128 * Number.EPSILON]
+ * @param {*} [abs_th=Number.MIN_SAFE_INTEGER]
+ * @return {*}
  */
-export const randomInt = (min: number, max: number): number => Math.round(Math.random() * (max - (min + 1))) + min
+export function nearly(a: number, b: number, epsilon = 128 * Number.EPSILON, abs_th = Number.MIN_SAFE_INTEGER) {
+	if (a == b) return true
+
+	const diff = Math.abs(a - b)
+	const norm = Math.min(Math.abs(a) + Math.abs(b), Number.MAX_SAFE_INTEGER)
+	return diff < Math.max(abs_th, epsilon * norm)
+}
