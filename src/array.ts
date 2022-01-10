@@ -44,12 +44,12 @@ export function matrix(size: number, value: (i: number, j: number, matrix: Array
  *
  * @export
  * @param {Array<Array<any>>} matrix
- * @param {(i: number, j: number, matrix: Array<Array<any>>) => any} callback
+ * @param {(i: number, j: number, matrix: Array<Array<any>>) => any | any} value
  * @return {*}  {Array<Array<any>>}
  */
 export function eachMatrix(
 	matrix: Array<Array<any>>,
-	callback: (i: number, j: number, matrix: Array<Array<any>>) => any
+	value: (i: number, j: number, matrix: Array<Array<any>>) => any | any
 ): Array<Array<any>> {
-	return matrix.map((row, i) => row.map((col, j) => callback(i, j, matrix)))
+	return matrix.map((row, i) => row.map((col, j) => (typeof value === 'function' ? value(i, j, matrix) : value)))
 }
