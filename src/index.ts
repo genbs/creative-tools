@@ -1,15 +1,4 @@
-const measurement = typeof performance !== 'undefined' ? performance : Date
-
-/**
- * Get current timestamp in milliseconds
- *
- * @category Utilities
- * @returns {number}
- */
-export function now(): number {
-	return measurement.now()
-}
-
+export * from './date'
 export * from './random'
 export * from './buffer'
 export * from './number'
@@ -22,3 +11,4 @@ export * from './color'
 export * from './vec2'
 export * from './array'
 export * from './intersections'
+export * from './renderer'
