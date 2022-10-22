@@ -1,6 +1,6 @@
 {
   "name": "creative-tools",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "scripts": {
     "watch": "parcel watch",
@@ -25,7 +25,6 @@
     "@parcel/transformer-typescript-types": "^2.7.0",
     "@types/node": "^18.11.3",
     "buffer": "^6.0.3",
-    "jszip": "^3.10.1",
     "parcel": "^2.7.0",
     "process": "^0.11.10"
   },
@@ -36,6 +35,7 @@
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",
     "canvas": "^2.10.1",
+    "jszip": "^3.10.1",
     "simplex-noise": "^3.0.1"
   }
 }
