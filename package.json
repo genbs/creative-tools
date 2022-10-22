@@ -1,6 +1,6 @@
 {
   "name": "creative-tools",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "scripts": {
     "watch": "parcel watch",
@@ -27,9 +27,6 @@
     "buffer": "^6.0.3",
     "parcel": "^2.7.0",
     "process": "^0.11.10"
-  },
-  "targets": {
-    "main": false
   },
   "dependencies": {
     "@ffmpeg/core": "^0.11.0",
