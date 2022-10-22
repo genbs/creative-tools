@@ -71,12 +71,11 @@ export function eachMatrix(
  * Offset is array between [-1, -1] and [1, 1].
  * The return value is between -Math.PI / 2 and Math.PI / 2
  *
- *
  * @param {Array<Array<any>>} matrix
  * @param {[number, number]} offsetFromCenter
  * @returns {number} between -Math.PI / 2 and Math.PI / 2
  */
-export function angleFromRepetition(
+export function angleFromMatrix(
 	matrix: Array<Array<any>>,
 	rowIndex: number,
 	colIndex: number,
@@ -102,7 +101,7 @@ export function angleFromRepetition(
  * @param {[number, number]} offsetFromCenter
  * @returns {number} between -Math.PI an Math.PI
  */
-export function angle2FromRepetition(
+export function angle2FromMatrix(
 	matrix: Array<Array<any>>,
 	rowIndex: number,
 	colIndex: number,
@@ -123,13 +122,11 @@ export function angle2FromRepetition(
  * Return distance from offset (or center) for matrix repetition.
  * The return value is between 0 and 1
  *
- * @category Utilities
- *
- * @param {IRepetition} repetition
+ * @param {Array<Array<any>>} matrix
  * @param {[number, number]} offsetFromCenter offset relative to distance prop
  * @returns {number} between 0 and 1
  */
-export function distanceFromRepetition(
+export function distanceFromMatrix(
 	matrix: Array<Array<any>>,
 	rowIndex: number,
 	colIndex: number,
