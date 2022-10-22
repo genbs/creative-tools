@@ -1,6 +1,6 @@
 {
   "name": "creative-tools",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "scripts": {
     "watch": "parcel watch",
@@ -14,6 +14,7 @@
     "package.json"
   ],
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "source": "src/index.ts",
   "default": "dist/index.js",
   "types": "dist/types.d.ts",
@@ -29,7 +30,7 @@
     "process": "^0.11.10"
   },
   "targets": {
-    "default": {}
+    "main": false
   },
   "dependencies": {
     "@ffmpeg/core": "^0.11.0",
