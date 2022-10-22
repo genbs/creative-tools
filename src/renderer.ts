@@ -174,7 +174,7 @@ class Renderer {
 	 * @param ffmpegProgress
 	 * @returns
 	 */
-	public async render(
+	public async video(
 		type: TRendererVideoType = 'video/mp4',
 		framerate = 50,
 		events: VideoEvents & {
@@ -212,7 +212,6 @@ class Renderer {
 
 			const blob = await this.frames[frame]
 			const buffer = (await (bNode ? blob : (blob as Blob).arrayBuffer())) as Buffer | ArrayBuffer
-
 			const frameName = frame.toString().padStart(5, '0') + '.jpg'
 			this.ffmpeg.FS('writeFile', frameName, new Uint8Array(buffer, 0, buffer.byteLength))
 
@@ -220,6 +219,7 @@ class Renderer {
 			const renderTime = currentTime - renderStartTime
 			totalRenderTime += renderTime
 
+			// TODO: progress in ffmpeglogger
 			events &&
 				events.progress &&
 				events.progress({

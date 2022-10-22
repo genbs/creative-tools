@@ -1,3 +1,5 @@
+import { vec2 } from './vec2'
+
 /**
  * Random element from array
  *
@@ -62,4 +64,83 @@ export function eachMatrix(
 	return matrix.map((row, rowIndex) =>
 		row.map((col, colIndex) => (typeof value === 'function' ? value(value, rowIndex, colIndex, matrix) : value))
 	)
+}
+
+/**
+ * Return angle (atan) from offset (or center) for matrix repetition.
+ * Offset is array between [-1, -1] and [1, 1].
+ * The return value is between -Math.PI / 2 and Math.PI / 2
+ *
+ *
+ * @param {Array<Array<any>>} matrix
+ * @param {[number, number]} offsetFromCenter
+ * @returns {number} between -Math.PI / 2 and Math.PI / 2
+ */
+export function angleFromRepetition(
+	matrix: Array<Array<any>>,
+	rowIndex: number,
+	colIndex: number,
+	offsetFromCenter: [number, number] = [0, 0]
+): number {
+	const centerMatrix = [(matrix[0].length - 1) / 2, (matrix.length - 1) / 2]
+
+	centerMatrix[0] += centerMatrix[0] * offsetFromCenter[0]
+	centerMatrix[1] += centerMatrix[1] * offsetFromCenter[1]
+
+	const x = colIndex - 1 - centerMatrix[0]
+	const y = rowIndex - 1 - centerMatrix[1]
+
+	return x === 0 ? 0 : Math.atan(y / x)
+}
+
+/**
+ * Return angle (atan2, 4 quadrants) from offset (or center) for matrix repetition.
+ * Offset is array between [-1, -1] and [1, 1].
+ * The return value is between -Math.PI an Math.PI
+ *
+ * @param {Array<Array<any>>} matrix
+ * @param {[number, number]} offsetFromCenter
+ * @returns {number} between -Math.PI an Math.PI
+ */
+export function angle2FromRepetition(
+	matrix: Array<Array<any>>,
+	rowIndex: number,
+	colIndex: number,
+	offsetFromCenter: [number, number] = [0, 0]
+): number {
+	const centerMatrix = [(matrix[0].length - 1) / 2, (matrix.length - 1) / 2]
+
+	centerMatrix[0] += centerMatrix[0] * offsetFromCenter[0]
+	centerMatrix[1] += centerMatrix[1] * offsetFromCenter[1]
+
+	const x = colIndex - 1 - centerMatrix[0]
+	const y = rowIndex - 1 - centerMatrix[1]
+
+	return x === 0 ? 0 : Math.atan2(y, x)
+}
+
+/**
+ * Return distance from offset (or center) for matrix repetition.
+ * The return value is between 0 and 1
+ *
+ * @category Utilities
+ *
+ * @param {IRepetition} repetition
+ * @param {[number, number]} offsetFromCenter offset relative to distance prop
+ * @returns {number} between 0 and 1
+ */
+export function distanceFromRepetition(
+	matrix: Array<Array<any>>,
+	rowIndex: number,
+	colIndex: number,
+	offsetFromCenter: [number, number] = [0, 0]
+): number {
+	const centerMatrix = [0.5, 0.5]
+
+	centerMatrix[0] += centerMatrix[0] * offsetFromCenter[0]
+	centerMatrix[1] += centerMatrix[1] * offsetFromCenter[1]
+
+	const current = [colIndex / matrix[0].length, rowIndex / matrix.length]
+
+	return vec2.distance(current, centerMatrix)
 }
