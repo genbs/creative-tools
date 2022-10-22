@@ -1,6 +1,6 @@
 {
   "name": "creative-tools",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "scripts": {
     "watch": "parcel watch",
@@ -13,7 +13,6 @@
     "README.md",
     "package.json"
   ],
-  "main": "dist/index.js",
   "module": "dist/index.js",
   "source": "src/index.ts",
   "default": "dist/index.js",
