@@ -1,11 +1,11 @@
 {
   "name": "creative-tools",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "prepublish": "build",
+    "prepublish": "npm run build",
     "test": "jest"
   },
   "files": [
@@ -13,6 +13,7 @@
     "README.md",
     "package.json"
   ],
+  "main": "dist/index.ts",
   "source": "src/index.ts",
   "default": "dist/index.js",
   "types": "dist/types.d.ts",
