@@ -86,8 +86,8 @@ export function angleFromMatrix(
 	centerMatrix[0] += centerMatrix[0] * offsetFromCenter[0]
 	centerMatrix[1] += centerMatrix[1] * offsetFromCenter[1]
 
-	const x = colIndex - 1 - centerMatrix[0]
-	const y = rowIndex - 1 - centerMatrix[1]
+	const x = colIndex - centerMatrix[0]
+	const y = rowIndex - centerMatrix[1]
 
 	return x === 0 ? 0 : Math.atan(y / x)
 }
@@ -112,8 +112,8 @@ export function angle2FromMatrix(
 	centerMatrix[0] += centerMatrix[0] * offsetFromCenter[0]
 	centerMatrix[1] += centerMatrix[1] * offsetFromCenter[1]
 
-	const x = colIndex - 1 - centerMatrix[0]
-	const y = rowIndex - 1 - centerMatrix[1]
+	const x = colIndex - centerMatrix[0]
+	const y = rowIndex - centerMatrix[1]
 
 	return x === 0 ? 0 : Math.atan2(y, x)
 }
@@ -137,7 +137,7 @@ export function distanceFromMatrix(
 	centerMatrix[0] += centerMatrix[0] * offsetFromCenter[0]
 	centerMatrix[1] += centerMatrix[1] * offsetFromCenter[1]
 
-	const current = [colIndex / matrix[0].length, rowIndex / matrix.length]
+	const current = [colIndex / (matrix[0].length - 1), rowIndex / (matrix.length - 1)]
 
 	return vec2.distance(current, centerMatrix)
 }
