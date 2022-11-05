@@ -62,7 +62,7 @@ export function eachMatrix(
 	value: (value: any, rowIndex: number, colIndex: number, matrix: Array<Array<any>>) => any | any
 ): Array<Array<any>> {
 	return matrix.map((row, rowIndex) =>
-		row.map((col, colIndex) => (typeof value === 'function' ? value(value, rowIndex, colIndex, matrix) : value))
+		row.map((col, colIndex) => (typeof value === 'function' ? value(col, rowIndex, colIndex, matrix) : value))
 	)
 }
 
